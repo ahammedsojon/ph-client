@@ -1,9 +1,8 @@
 import { Button } from "antd";
-import Password from "antd/es/input/Password";
-import { useForm } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
-import { useLoginMutation } from "../redux/features/auth/authApi";
+import { FieldValues, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useLoginMutation } from "../redux/features/auth/authApi";
 import { setUser } from "../redux/features/auth/authSlice";
 
 const Login = () => {
@@ -19,7 +18,7 @@ const Login = () => {
   const [login, { data, isError, isLoading, isSuccess, error }] =
     useLoginMutation();
 
-  const onSubmit = async (data: { userId: string; password: string }) => {
+  const onSubmit = async (data: FieldValues) => {
     const userInfo = {
       id: data.userId,
       password: data.password,

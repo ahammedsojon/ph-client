@@ -23,6 +23,11 @@ export const adminPaths = [
     element: <AdminDashboard />,
   },
   {
+    name: "Academic Management",
+    path: "academic-semesters",
+    element: <AdminDashboard />,
+  },
+  {
     name: "User Management",
     children: [
       {
